@@ -1,7 +1,6 @@
 package com.cooperbros.createdbfromxml.appxmlparsing;
 
 import android.content.ContentValues;
-import android.util.Log;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
  */
 public class XmlParser {
 
-    final String LOG_TAG = "myLogs";
     public ArrayList<String> mArrayCountry = new ArrayList<String>();
     public XmlPullParser xpp;
     public String mCountry;
@@ -71,8 +69,8 @@ public class XmlParser {
                         break;
                 }
 
-                if (mCountry != null && mCityId != null && mCity != null && !mCity.equals(mTmpCity)
-                        && !mCityId.equals(mTmpCityId)) {
+                if (mCountry != null && mCityId != null && mCity != null && mCity != mTmpCity
+                        && mCityId != mTmpCityId) {
 
                     mContValues.put("country_name", mCountry);
                     mContValues.put("city_name", mCity);

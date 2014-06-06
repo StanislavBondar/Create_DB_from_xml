@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String DATABASE_CREATE_SCRIPT = "create table "
                 + DATABASE_TABLE + " (" + BaseColumns._ID
                 + " integer primary key autoincrement, " + COUNTRY_COLUMN
-                + " text not null, utf8, " + CITY_COLUMN + " text not null, utf8,  "
+                + " text not null, " + CITY_COLUMN + " text not null, "
                 + CITY_ID + " integer);";
 
         db.execSQL(DATABASE_CREATE_SCRIPT);
