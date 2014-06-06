@@ -2,10 +2,8 @@ package com.cooperbros.createdbfromxml.appxmlparsing;
 
 import android.content.ContentValues;
 import android.util.Log;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.sql.SQLDataException;
 import java.util.ArrayList;
@@ -21,6 +19,8 @@ public class XmlParser {
     public String mCountry;
     public String mCity;
     public Integer mCityId;
+    public String mTmpCity = "";
+    public Integer mTmpCityId = 1;
     public ContentValues mContValues = new ContentValues();
 
 
@@ -63,7 +63,7 @@ public class XmlParser {
 
                         //находим город
                         mCity = xpp.getText();
-                        Log.d(LOG_TAG, "text = " + xpp.getText());
+                        //Log.d(LOG_TAG, "text = " + xpp.getText());
                         break;
 
 
@@ -71,11 +71,15 @@ public class XmlParser {
                         break;
                 }
 
-                if (mCountry != null && mCityId != null && mCity != null) {
+                if (mCountry != null && mCityId != null && mCity != null && !mCity.equals(mTmpCity)
+                        && !mCityId.equals(mTmpCityId)) {
+
                     mContValues.put("country_name", mCountry);
                     mContValues.put("city_name", mCity);
                     mContValues.put("city_id", mCityId);
 
+                    mTmpCity = mCity;
+                    mTmpCityId = mCityId;
                     //записываем данные после проверки в БД, т.к. элементы инициализируются не за один цикл
                     try {
                         new DataBase().todo(mContValues);

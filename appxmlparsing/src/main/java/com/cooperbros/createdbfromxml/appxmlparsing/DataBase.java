@@ -12,16 +12,17 @@ import java.sql.SQLDataException;
  */
 public class DataBase {
 
-    private DBHelper dbHelper;
+    private static DBHelper dbHelper;
     private static final String DATABASE_TABLE = "country";
-    public SQLiteDatabase sqLiteDatabase;
-    public Context mContext;
+    public static SQLiteDatabase sqLiteDatabase;
+    public static Context mContext;
 
 
     public DataBase(Context context){
 
-        this.mContext = context;
+        mContext = context;
         dbHelper = new DBHelper(mContext);
+
     }
 
     public DataBase(){
@@ -30,7 +31,6 @@ public class DataBase {
 
     public void open() throws SQLDataException {
 
-        //dbHelper = new DBHelper(mContext);
         sqLiteDatabase = dbHelper.getWritableDatabase();
         Log.d("My", "database open = " + sqLiteDatabase);
 

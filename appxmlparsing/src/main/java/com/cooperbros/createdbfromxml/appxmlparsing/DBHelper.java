@@ -12,14 +12,6 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
 
     private final String DATABASE_TABLE = "country";
-    private final String COUNTRY_COLUMN = "country_name";
-    private final String CITY_COLUMN = "city_name";
-    private final String CITY_ID = "city_id";
-    private final String DATABASE_CREATE_SCRIPT = "create table "
-            + DATABASE_TABLE + " (" + BaseColumns._ID
-            + " integer primary key autoincrement, " + COUNTRY_COLUMN
-            + " text not null, " + CITY_COLUMN + " text not null, "
-            + CITY_ID + " integer);";
 
     public DBHelper(Context context) {
         super(context, "my_db.sqlite", null, 1);
@@ -29,7 +21,17 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        String CITY_ID = "city_id";
+        String CITY_COLUMN = "city_name";
+        String COUNTRY_COLUMN = "country_name";
+        String DATABASE_CREATE_SCRIPT = "create table "
+                + DATABASE_TABLE + " (" + BaseColumns._ID
+                + " integer primary key autoincrement, " + COUNTRY_COLUMN
+                + " text not null, utf8, " + CITY_COLUMN + " text not null, utf8,  "
+                + CITY_ID + " integer);";
+
         db.execSQL(DATABASE_CREATE_SCRIPT);
+
         Log.d("My", "DB Create");
 
     }

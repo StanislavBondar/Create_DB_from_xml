@@ -17,7 +17,6 @@ public class MainActivity extends ActionBarActivity {
     public ArrayList<String> mCountry = new ArrayList<String>();
     public ArrayAdapter<String> mArrayAdapter;
     public ListView mListView;
-    private DataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_main);
 
-        dataBase = new DataBase(this);
+        DataBase dataBase = new DataBase(this);
         try {
             dataBase.open();
         } catch (SQLDataException e) {
