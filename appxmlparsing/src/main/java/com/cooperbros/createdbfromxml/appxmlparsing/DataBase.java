@@ -34,8 +34,6 @@ public class DataBase {
         sqLiteDatabase = dbHelper.getWritableDatabase();
         Log.d("My", "database open = " + sqLiteDatabase);
 
-        //return this;
-
     }
 
     public void close(){
