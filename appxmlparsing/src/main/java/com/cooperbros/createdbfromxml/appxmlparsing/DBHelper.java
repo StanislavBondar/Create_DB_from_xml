@@ -11,10 +11,10 @@ import android.util.Log;
  */
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_TABLE = "country";
-    private static final String COUNTRY_COLUMN = "country_name";
-    private static final String CITY_COLUMN = "city_name";
-    private static final String CITY_ID = "city_id";
+    private final String DATABASE_TABLE = "country";
+    private final String COUNTRY_COLUMN = "country_name";
+    private final String CITY_COLUMN = "city_name";
+    private final String CITY_ID = "city_id";
     private final String DATABASE_CREATE_SCRIPT = "create table "
             + DATABASE_TABLE + " (" + BaseColumns._ID
             + " integer primary key autoincrement, " + COUNTRY_COLUMN
