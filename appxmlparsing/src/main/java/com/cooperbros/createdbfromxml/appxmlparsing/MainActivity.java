@@ -2,16 +2,11 @@ package com.cooperbros.createdbfromxml.appxmlparsing;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.crashlytics.android.Crashlytics;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.sql.SQLDataException;
 import java.util.ArrayList;
