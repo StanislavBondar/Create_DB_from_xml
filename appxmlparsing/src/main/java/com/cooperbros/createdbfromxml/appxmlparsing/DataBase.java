@@ -45,7 +45,7 @@ public class DataBase {
 
     public void todo(ContentValues contentValues) throws SQLDataException{
 
-        sqLiteDatabase.insert(DATABASE_TABLE, null, contentValues);// в этом консрукторе sqLiteDatabase = null
+        sqLiteDatabase.insert(DATABASE_TABLE, null, contentValues);
 
     }
 
